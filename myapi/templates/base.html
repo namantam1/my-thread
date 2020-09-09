@@ -1,0 +1,111 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-site-verification" content="23THVJiq0bb_4ssxmdX2LBtigJshncb_6Q7dK0XkIBE" />
+    <link rel="shortcut icon" href="{% static 'icon.png' %}" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static '/stylesheet.css' %}" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .dataTables_wrapper .dataTables_length,
+        .dataTables_wrapper .dataTables_filter,
+        .dataTables_wrapper .dataTables_info,
+        .dataTables_wrapper .dataTables_processing,
+        .dataTables_wrapper .dataTables_paginate,
+        .paginate_button {
+            color: inherit !important;
+        }
+
+        #table_previous,
+        #table_next {
+            color: white !important;
+        }
+
+        table.dataTable tbody tr {
+            background-color: #343a40;
+        }
+
+        tbody>tr:hover {
+            background-color: #1a1b21 !important;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                display: inline-block;
+                width: 100%;
+                overflow-x: auto;
+            }
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+    {% block head %}
+    {% endblock head %}
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">{{thread}} Thread</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        {% comment %} <a class="nav-link {{home}}" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {{feature}}" href="{% url 'features' %}">Features</a> {% endcomment %}
+                        <a class="nav-link {{feedback}}" href="{% url 'feedback' thread %}">Feedback</a>
+                    </nav>
+                </div>
+            </header>
+            {% if error %}
+            <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                <strong>Opps {{error}}!</strong> You should check it once if it exists or report us if not.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+        {% block main %}
+        {% endblock main %}
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    {% block script %}
+    {% endblock script %}
+</body>
+
+</html>
