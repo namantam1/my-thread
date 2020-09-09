@@ -29,7 +29,7 @@
             <h5 class="my-0">{{comment.name}}</h5>
             {% endif %}
             <small style="color: wheat;">{{comment.created_on | naturaltime}}</small><br>
-            <p class="mb-2">{{comment.text}}</p>
+            <p class="mb-2 white-space">{{comment.text}}</p>
             {% if comment.comment_set.all %}
             <button class="btn btn-sm btn-success" type="button" data-toggle="collapse"
                 data-target=".multi-collapse-{{comment.id}}" aria-expanded="false"
@@ -54,7 +54,7 @@
                         <h6 class="my-0">{{child_comment.name}}</h6>
                         {% endif %}
                         <small style="color: wheat;">{{child_comment.created_on | naturaltime}}</small><br>
-                        <p class="mb-2">{{child_comment.text}}</p>
+                        <p class="mb-2 white-space">{{child_comment.text}}</p>
                     </div>
                 </div>
                 {% endfor %}
