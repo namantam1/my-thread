@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% block main %}
-<div class="container pb-5">
+<div class="container text-break pb-5">
     <h3>Feedbacks ({{commentcount}}) | Answered ({{answercount}})</h3>
     <form method='Post'>
         {% csrf_token %}
